@@ -1,0 +1,13 @@
+[Unit]
+Description=Discord presence for RetroArch
+
+[Service]
+ExecStart=%h/go/bin/retroarch-presence
+Restart=on-failure
+RestartSec=10
+# 78 is a config error. Restarting cannot fix it, so systemd stops and the
+# reason stays at the top of journalctl --user -u retroarch-presence.
+RestartPreventExitStatus=78
+
+[Install]
+WantedBy=default.target

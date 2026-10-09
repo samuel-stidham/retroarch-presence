@@ -1,0 +1,47 @@
+# retroarch-presence config.
+# Copy to ~/.config/retroarch-presence/config.toml (or $XDG_CONFIG_HOME/...).
+# Only application_id is required. Every other key shows its default.
+# Values must be quoted strings. See docs/spec.md for the full behavior.
+
+# Your Discord application's id, from https://discord.com/developers/applications.
+# The application's name heads the activity card ("Playing <name>"), so name it
+# what you want shown there, for example "RetroArch".
+application_id = ""
+
+# How often to ask RetroArch what it is running. At least "1s".
+poll_interval = "5s"
+
+# Where RetroArch listens for network commands (Settings > Network).
+retroarch_address = "127.0.0.1:55355"
+
+# RetroArch's config dir, which holds retroarch.cfg. Empty means auto-detect:
+# ~/.config/retroarch first, then the Flatpak's
+# ~/.var/app/org.libretro.RetroArch/config/retroarch.
+retroarch_config_dir = ""
+
+# Where the "[N64] Ocarina of Time" text goes.
+#   "details"  the line under the header. The status line shows it. Always works.
+#   "name"     the card header itself, in place of the application name.
+display = "details"
+
+# debug, info, warn, or error. "error" stays silent while things work.
+log_level = "error"
+
+# A Discord asset key shown as the small image while paused. Empty for none.
+paused_image = ""
+
+# Override a label or set a large image per system. Keys are the system ids
+# RetroArch sends, optionally refined by file extension. Run with
+# log_level = "info" to see the id for whatever you load.
+#
+# [systems.nintendo_64]
+# label = "N64"
+# image = "n64"        # asset key uploaded under your application's Rich Presence art
+#
+# [systems."game_boy.gbc"]
+# label = "GBC"
+
+# Pin an exact title per file. The key is the file name without its extension.
+#
+# [titles]
+# "Legend of Zelda, The - Ocarina of Time (USA)" = "Ocarina of Time"
